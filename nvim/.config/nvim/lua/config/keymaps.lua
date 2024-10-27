@@ -5,9 +5,7 @@
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").live_grep, { desc = "[?] Find in all files" })
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-    winblend = 10,
-  }))
+  require("telescope.builtin").current_buffer_fuzzy_find()
 end, { desc = "[/] Fuzzily search in current buffer" })
 vim.keymap.set(
   "n", -- mode
@@ -55,36 +53,6 @@ vim.keymap.set(
   ":Telescope file_history query<CR>",
   { noremap = true, silent = true, desc = "Query the repo" }
 )
-vim.keymap.set(
-  "n",
-  "<leader>gad",
-  ":AdvancedGitSearch diff_commit_file<CR>",
-  { noremap = true, silent = true, desc = "View file git history" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>gaD",
-  ":AdvancedGitSearch diff_commit_line<CR>",
-  { noremap = true, silent = true, desc = "View line git history" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>gal",
-  ":AdvancedGitSearch search_log_content<CR>",
-  { noremap = true, silent = true, desc = "Search git log" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>gaL",
-  ":AdvancedGitSearch search_log_content_file<CR>",
-  { noremap = true, silent = true, desc = "Search git file log" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>gab",
-  ":AdvancedGitSearch diff_branch_file<CR>",
-  { noremap = true, silent = true, desc = "Diff file with branch" }
-)
 vim.keymap.set("n", "<leader>gdl", ":DiffviewFileHistory<CR>", { noremap = true, silent = true, desc = "View history" })
 vim.keymap.set(
   "n",
@@ -95,3 +63,17 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>gde", ":DiffviewOpen <CR>", { noremap = true, silent = true, desc = "Open current index" })
 vim.keymap.set("n", "<leader>gdd", ":DiffviewClose<CR>", { noremap = true, silent = true, desc = "Close Diffview" })
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+-- git-worktree
+vim.keymap.set(
+  "n",
+  "<leader>gwl",
+  require("telescope").extensions.git_worktree.git_worktrees,
+  { noremap = true, silent = true, desc = "List worktrees" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>gwc",
+  require("telescope").extensions.git_worktree.create_git_worktree,
+  { noremap = true, silent = true, desc = "List worktrees" }
+)

@@ -52,7 +52,7 @@ if vim.fn.has("nvim-0.8") == 1 then
   vim.opt.cmdheight = 0
 end
 
-vim.g.neovide_transparency = 0.8
+vim.g.neovide_transparency = 0.3
 vim.g.neovide_window_blurred = true
 
 vim.g.enfocado_style = "neon"
