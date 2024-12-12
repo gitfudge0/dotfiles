@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local snacks = require("snacks")
+
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").live_grep, { desc = "[?] Find in all files" })
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -77,3 +79,13 @@ vim.keymap.set(
   require("telescope").extensions.git_worktree.create_git_worktree,
   { noremap = true, silent = true, desc = "List worktrees" }
 )
+
+local function toggle_dim()
+  if snacks.dim.enabled then
+    snacks.dim.disable()
+  else
+    snacks.dim.enable()
+  end
+end
+
+vim.keymap.set("n", "<leader>uxd", toggle_dim, { noremap = true, desc = "Toggle scope dimming" })

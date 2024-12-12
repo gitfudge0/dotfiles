@@ -37,5 +37,25 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    dim = {
+      enabled = true,
+      scope = {
+        min_size = 3,
+        max_size = 30,
+        siblings = true,
+      },
+      animate = {
+        enabled = vim.fn.has("nvim-0.10") == 1,
+        easing = "outQuad",
+        duration = {
+          step = 20, -- ms per step
+          total = 300, -- maximum duration
+        },
+      },
+      -- what buffers to dim
+      filter = function(buf)
+        return vim.g.snacks_dim ~= false and vim.b[buf].snacks_dim ~= false and vim.bo[buf].buftype == ""
+      end,
+    },
   },
 }
