@@ -79,13 +79,3 @@ vim.keymap.set(
   require("telescope").extensions.git_worktree.create_git_worktree,
   { noremap = true, silent = true, desc = "List worktrees" }
 )
-
-local function toggle_dim()
-  if snacks.dim.enabled then
-    snacks.dim.disable()
-  else
-    snacks.dim.enable()
-  end
-end
-
-vim.keymap.set("n", "<leader>uxd", toggle_dim, { noremap = true, desc = "Toggle scope dimming" })

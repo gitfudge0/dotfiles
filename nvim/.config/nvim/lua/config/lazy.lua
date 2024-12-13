@@ -82,16 +82,4 @@ require("lualine").setup({
   options = { theme = "enfocado" },
 })
 
-require("cmp").setup({
-  window = {
-    completion = {
-      border = "rounded",
-      winhighlight = "Normal:CmpNormal",
-    },
-    documentation = {
-      winhighlight = "Normal:CmpDocNormal",
-    },
-  },
-})
-
 require("telescope").load_extension("git_worktree")
