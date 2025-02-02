@@ -6,7 +6,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>nv", "<cmd>Navbuddy<cr>", desc = "Nav" },
+    { "<leader>N", "<cmd>Navbuddy<cr>", desc = "Nav" },
   },
   config = function()
     local actions = require("nvim-navbuddy.actions")
