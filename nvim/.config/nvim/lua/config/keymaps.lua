@@ -77,3 +77,5 @@ vim.keymap.set(
   require("telescope").extensions.git_worktree.create_git_worktree,
   { noremap = true, silent = true, desc = "List worktrees" }
 )
+
+vim.keymap.set({ "n", "v" }, "<leader>]", ":Gen<CR>")
