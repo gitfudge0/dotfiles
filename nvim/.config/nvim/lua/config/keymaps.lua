@@ -9,3 +9,13 @@ vim.keymap.set(
 )
 
 vim.keymap.set({ "n", "v" }, "<leader>]", ":Gen<CR>")
+
+-- Diffview
+vim.keymap.set("n", "<leader>gDo", ":DiffviewOpen<CR>", { noremap = true, desc = "Open Diffview" })
+vim.keymap.set("n", "<leader>gDl", ":DiffviewFileHistory<CR>", { noremap = true, silent = true, desc = "View history" })
+vim.keymap.set(
+  "n",
+  "<leader>gDf",
+  ":DiffviewFileHistory %<CR>",
+  { noremap = true, silent = true, desc = "View file history" }
+)
