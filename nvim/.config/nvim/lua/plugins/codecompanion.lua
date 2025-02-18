@@ -117,7 +117,7 @@ return {
         strategy = "chat",
         description = "Get code review from an LLM",
         opts = {
-          modes = { "v" },
+          modes = { "n", "v" },
           short_name = "review",
           auto_submit = true,
           stop_context_insertion = true,
@@ -129,15 +129,23 @@ return {
             content = function(context)
               return "I want you to act as a senior "
                 .. context.filetype
-                .. " developer. I want you to review the code and give me suggestions that improve the code quality."
+                .. " developer. I want you to review the code, give me a rating for the provided code, and give me suggestions that improve the code quality only if the provided code is not great. Do not suggest improvements for the sake of suggestions."
             end,
           },
           {
             role = "user",
-            content = function(context)
-              local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
+            content = function()
+              local handle = io.popen("git diff --staged")
+              if not handle then
+                return "Error: Could not get git diff"
+              end
+              local diff = handle:read("*a")
+              handle:close()
+              if not diff or diff == "" then
+                return "No staged changes found in git"
+              end
 
-              return "I have the following code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+              return "I have the following code:\n\n```diff\n" .. diff .. "\n```"
             end,
             opts = {
               contains_code = true,
