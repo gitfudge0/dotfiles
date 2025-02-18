@@ -10,8 +10,8 @@ return {
     strategies = {
       -- Change the default chat adapter
       chat = {
-        adapter = "qwen",
-        inline = "qwen",
+        adapter = "anthropic",
+        inline = "anthropic",
         keymaps = {
           close = {
             modes = {
@@ -33,7 +33,7 @@ return {
       },
       inline = {
         layout = "vertical", -- vertical|horizontal|buffer
-        adapter = "qwen",
+        adapter = "anthropic",
         prompts = {
           -- The prompt to send to the LLM when a user initiates the inline strategy and it needs to convert to a chat
           inline_to_chat = function(context)
@@ -82,6 +82,13 @@ return {
       },
     },
     adapters = {
+      anthropic = function()
+        return require("codecompanion.adapters").extend("anthropic", {
+          env = {
+            api_key = "",
+          },
+        })
+      end,
       qwen = function()
         return require("codecompanion.adapters").extend("ollama", {
           name = "qwen", -- Give this adapter a different name to differentiate it from the default ollama adapter

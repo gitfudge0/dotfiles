@@ -41,3 +41,9 @@ vim.keymap.set(
   ":CodeCompanionChat Add<CR>",
   { noremap = true, desc = "CodeCompanion add to chat" }
 )
+vim.keymap.set("v", "<leader>ai", function()
+  local prompt = vim.fn.input("Prompt: ")
+  if prompt ~= "" then
+    vim.cmd(string.format(":'<,'>CodeCompanion /buffer %s", prompt))
+  end
+end, { desc = "CodeCompanion inline" })
