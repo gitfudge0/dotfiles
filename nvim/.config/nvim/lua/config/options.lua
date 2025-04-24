@@ -37,6 +37,7 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
+vim.o.statuscolumn = "%s %l %r  "
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -56,4 +57,4 @@ vim.g.neovide_transparency = 0.3
 vim.g.neovide_window_blurred = true
 
 vim.g.enfocado_style = "neon"
-vim.o.guifont = "JetBrainsMono Nerd Font:h15"
+vim.o.guifont = "JetBrainsMono Nerd Font:h16"
