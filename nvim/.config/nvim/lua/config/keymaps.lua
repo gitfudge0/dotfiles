@@ -20,24 +20,3 @@ vim.keymap.set(
   ":DiffviewFileHistory %<CR>",
   { noremap = true, silent = true, desc = "View file history" }
 )
-
--- CodeCompanion
-vim.keymap.set({ "n", "v" }, "<leader>a", "", { noremap = true, desc = "CodeCompanion" })
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>aa",
-  ":CodeCompanionActions<CR>",
-  { noremap = true, desc = "CodeCompanion actions" }
-)
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>ac",
-  ":CodeCompanionChat Toggle<CR>",
-  { noremap = true, desc = "CodeCompanion chat" }
-)
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>ad",
-  ":CodeCompanionChat Add<CR>",
-  { noremap = true, desc = "CodeCompanion add to chat" }
-)
