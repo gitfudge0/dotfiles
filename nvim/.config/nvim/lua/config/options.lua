@@ -58,3 +58,6 @@ vim.g.neovide_window_blurred = true
 
 vim.g.enfocado_style = "neon"
 vim.o.guifont = "JetBrainsMono Nerd Font:h16"
+
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3

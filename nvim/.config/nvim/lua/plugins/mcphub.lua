@@ -17,6 +17,11 @@ return {
       on_error = function(err)
         -- Called on errors
       end,
+      extensions = {
+        avante = {
+          make_slash_commands = true,
+        },
+      },
       shutdown_delay = 0, -- Wait 0ms before shutting down server after last client exits
       log = {
         level = vim.log.levels.WARN,
