@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>ao", function()
 end, { desc = "Open opencode in right split" })
 
 -- Open copilot panel with <leader>op
-vim.keymap.set("n", "<leader>ap", ":Copilot panel<CR>", { desc = "Open Copilot Panel" })
+vim.keymap.set("n", "<leader>ap", ":Copilot panel<CR>", { noremap = true, silent = true, desc = "Open Copilot Panel" })
 
 -- Terminal: <C-Space> exits to normal mode
 vim.keymap.set("t", "<C-Space>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Terminal normal mode" })
