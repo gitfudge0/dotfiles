@@ -15,8 +15,8 @@ return {
           open = "<M-CR>",
         },
         layout = {
-          position = "right", -- | top | left | right | horizontal | vertical
-          ratio = 0.5,
+          position = "horizontal", -- | top | left | right | horizontal | vertical
+          ratio = 0.3,
         },
       },
       suggestion = {
