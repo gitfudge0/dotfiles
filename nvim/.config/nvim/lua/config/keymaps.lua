@@ -40,7 +40,6 @@ vim.keymap.set("n", "<leader>ao", function()
   vim.api.nvim_set_current_win(terminal_win)
   -- Enter terminal insert mode to make it interactable
   vim.cmd("startinsert")
-  -- Add ability to move between open windows
 end, { desc = "Open opencode in right split" })
 
 -- Open copilot panel with <leader>op
