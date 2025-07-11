@@ -24,6 +24,12 @@ end, { noremap = true, silent = true })
 
 -- Open opencode in right split
 vim.keymap.set('n', '<leader>ao', function()
+  -- Check if 'opencode' command exists
+  local opencode_exists = vim.fn.system('command -v opencode'):match('opencode')
+  if not opencode_exists then
+    vim.notify("'opencode' command not found. Please install it to use this feature.", vim.log.levels.ERROR)
+    return
+  end
   -- Open a vertical split on the right
   vim.cmd('vsplit')
   -- Open a terminal in the new split and run 'opencode'
