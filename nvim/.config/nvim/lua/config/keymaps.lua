@@ -8,8 +8,6 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Copy file path relative to root" } -- options
 )
 
-vim.keymap.set({ "n", "v" }, "<leader>]", ":Gen<CR>")
-
 -- Diffview
 vim.keymap.set("n", "<leader>gD", "", { noremap = true, desc = "GitAdvanced" })
 vim.keymap.set("n", "<leader>gDo", ":DiffviewOpen<CR>", { noremap = true, desc = "Open Diffview" })
@@ -20,3 +18,18 @@ vim.keymap.set(
   ":DiffviewFileHistory %<CR>",
   { noremap = true, silent = true, desc = "View file history" }
 )
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+  require("tiny-code-action").code_action({})
+end, { noremap = true, silent = true })
+
+-- Open opencode in right split
+vim.keymap.set('n', '<leader>ao', function()
+  -- Open a vertical split on the right
+  vim.cmd('vsplit')
+  -- Open a terminal in the new split and run 'opencode'
+  vim.cmd('terminal opencode')
+  -- Move cursor to the terminal window
+  vim.cmd('wincmd l')
+  -- Enter terminal insert mode to make it interactable
+  vim.cmd('startinsert')
+end, { desc = 'Open opencode in right split' })
