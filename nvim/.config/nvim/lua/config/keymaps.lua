@@ -34,8 +34,10 @@ vim.keymap.set('n', '<leader>ao', function()
   vim.cmd('vsplit')
   -- Open a terminal in the new split and run 'opencode'
   vim.cmd('terminal opencode')
-  -- Move cursor to the terminal window
-  vim.cmd('wincmd l')
+  -- Get the window ID of the terminal
+  local terminal_win = vim.api.nvim_get_current_win()
+  -- Move cursor explicitly to the terminal window
+  vim.api.nvim_set_current_win(terminal_win)
   -- Enter terminal insert mode to make it interactable
   vim.cmd('startinsert')
 end, { desc = 'Open opencode in right split' })
