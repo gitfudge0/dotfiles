@@ -15,23 +15,23 @@ return {
           open = "<M-CR>",
         },
         layout = {
-          position = "horizontal", -- | top | left | right | horizontal | vertical
-          ratio = 0.3,
+          position = "bottom", -- | top | left | right
+          ratio = 0.4, -- 0.1 - 0.9
         },
       },
       suggestion = {
         enabled = true,
         auto_trigger = true,
-        hide_during_completion = false,
+        hide_during_completion = true,
         debounce = 75,
         trigger_on_accept = true,
         keymap = {
-          accept = "<Tab>", -- Use <Tab> to accept the suggestion
+          accept = "<M-p>",
           accept_word = false,
           accept_line = false,
-          next = "<C-]>", -- Use <C-]> to go to the next suggestion
-          prev = "<C-[>", -- Use <C-[> to go to the previous suggestion
-          dismiss = "<C-Tab>", -- Use <C-Tab> to dismiss the suggestion
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
         },
       },
     })
